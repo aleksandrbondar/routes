@@ -13,6 +13,8 @@ nav {
 
 nav ul {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   font-size: 24px;
   list-style: none;
   padding-block: 20px;
@@ -26,10 +28,34 @@ nav ul li {
 }
 
 nav ul li a {
+  transition: 0.5s;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: black;
   background-color: lightgray;
-  padding: 20px 40px;
 }
 
 nav ul li .active {
   background-color: blueviolet;
+}
+
+nav ul li a:hover {
+  background-color: blueviolet;
+}
+
+.btn {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  background-color: yellowgreen;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.btn:hover {
+  background-color: green;
 }
