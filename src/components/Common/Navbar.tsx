@@ -1,17 +1,26 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
+import { routes, RouteInterface } from '../App/App';
 
 const Navbar = () => {
+
+
   return (
     <nav>
       <ul>
-        <li><NavLink to="/">Головна</NavLink></li>
-        <li><NavLink to="/about" >Про нас</NavLink></li>
-        <li><NavLink to="/contact">Контакти</NavLink></li>
-        <li><NavLink to="/login">Логін</NavLink></li>
-        <li><NavLink to="/registration">Реєстрація</NavLink></li>
+        {routes.filter((route: RouteInterface) => route.path !== "*")
+          .map((route: RouteInterface, index: number) => (
+            <li key={index}>
+              <NavLink
+                to={route.path}
+                className={({ isActive }) => (isActive ? "active" : undefined)}
+              >
+                {route.name}
+              </NavLink>
+            </li>
+          ))}
       </ul>
-    </nav >
-  )
-}
+    </nav>
+  );
+};
 
-export default Navbar
+export default Navbar;
